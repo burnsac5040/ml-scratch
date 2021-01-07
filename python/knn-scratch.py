@@ -2,10 +2,8 @@
 # coding: utf-8
 
 # ## K Nearest Neighbors
-# 
 # Euclidean Distance 2D = $\sqrt{\sum_{i=1}^{n} (q_{i} - p_{i})^{2}}$
 
-# In[1]:
 
 
 import numpy as np
@@ -17,7 +15,6 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 plt.style.use(['dark_background'])
 
 
-# In[2]:
 
 
 class KNN:
@@ -36,7 +33,6 @@ class KNN:
         return np.argmax(np.bincount(k_labels))
 
 
-# In[3]:
 
 
 iris = load_iris()
@@ -49,25 +45,21 @@ X_train, X_test, y_train, y_test = train_test_split(X, y,
 print(f'X_train.shape: {X_train.shape} // y_train.shape: {y_train.shape}\nX_test.shape: {X_test.shape} // y_test.shape: {y_test.shape}')
 
 
-# In[4]:
 
 
 X_train[:5]
 
 
-# In[5]:
 
 
 y_train
 
 
-# In[6]:
 
 
 X_train[y_train == 1][:5]
 
 
-# In[7]:
 
 
 color_l = ['#D4CF72', '#F2848F', '#5DB26D']
@@ -82,7 +74,6 @@ cb.set_ticks(loc)
 cb.set_ticklabels(['Class 0', 'Class 1', 'Class 2'])
 
 
-# In[8]:
 
 
 clf = KNN()
@@ -94,7 +85,6 @@ print(f'Accuracy: {round((np.sum(y_pred == y_test) / len(y_test))*100, 2)}%')
 
 # ### Accuracy for different k's
 
-# In[9]:
 
 
 accs = {}
@@ -104,7 +94,6 @@ for k in range(1, X.shape[0]):
     accs[k] = round((np.sum(y_pred == y_test) / y_test.size), 2)*100
 
 
-# In[10]:
 
 
 plt.rcParams['figure.dpi'] = 300
@@ -115,7 +104,6 @@ plt.yticks(ticks=np.arange(20, 101, 10),
            labels=[f'{x}%' for x in np.arange(20, 101, 10)]);
 
 
-# In[ ]:
 
 
 

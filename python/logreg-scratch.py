@@ -1,18 +1,11 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn import datasets
 # %matplotlib inline
 plt.style.use(['dark_background'])
-
-
-# In[2]:
-
 
 dataset = datasets.load_breast_cancer()
 X, y = dataset.data, dataset.target
@@ -26,10 +19,6 @@ X_train, X_test = X[train_idx], X[test_idx]
 y_train, y_test = y[train_idx], y[test_idx]
 
 print('X_train: %s, X_test %s\ny_train: %s, y_test: %s' % (X_train.shape, X_test.shape, y_train.shape, y_test.shape))
-
-
-# In[3]:
-
 
 from timeit import default_timer as t
 
@@ -67,10 +56,6 @@ class LogisticRegression:
         probs = self._sigmoid(np.dot(X, self.w))
         clss = probs >= threshold
         return probs, clss
-
-
-# In[4]:
-
 
 lr = LogisticRegression()
 lr.fit(X_train, y_train)
