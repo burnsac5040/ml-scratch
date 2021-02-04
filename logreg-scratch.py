@@ -1,12 +1,25 @@
-#!/usr/bin/env python
-# coding: utf-8
+# ---
+# jupyter:
+#   jupytext:
+#     formats: ipynb,py
+#     text_representation:
+#       extension: .py
+#       format_name: light
+#       format_version: '1.5'
+#       jupytext_version: 1.9.1
+#   kernelspec:
+#     display_name: Python 3
+#     language: python
+#     name: python3
+# ---
 
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn import datasets
-# %matplotlib inline
+# # %matplotlib inline
 plt.style.use(['dark_background'])
 
+# +
 dataset = datasets.load_breast_cancer()
 X, y = dataset.data, dataset.target
 
@@ -20,6 +33,7 @@ y_train, y_test = y[train_idx], y[test_idx]
 
 print('X_train: %s, X_test %s\ny_train: %s, y_test: %s' % (X_train.shape, X_test.shape, y_train.shape, y_test.shape))
 
+# +
 from timeit import default_timer as t
 
 class LogisticRegression:
@@ -57,9 +71,10 @@ class LogisticRegression:
         clss = probs >= threshold
         return probs, clss
 
+
+# +
 lr = LogisticRegression()
 lr.fit(X_train, y_train)
 _, pred = lr.predict_proba(X_test)
 
 print(f'Accuracy: {np.sum(y_test == pred.astype(int)) / y_test.size}')
-
