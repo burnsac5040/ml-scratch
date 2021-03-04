@@ -1,7 +1,6 @@
-Machine Learning Algorithms from Scratch
-========================================
+## Machine Learning Algorithms from Scratch
 
-A collection of standard machine learning algorithms coded with numpy.
+A collection of standard machine learning algorithms coded with python and numpy.
 
 - [K Nearest Neighbors](knn-scratch.ipynb)
 
